@@ -1,6 +1,6 @@
-NAME = megaphone
+NAME = phonebook
 
-SRCS = megaphone.cpp
+SRCS = phonebook.cpp phonebook_utils.cpp contact.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
