@@ -1,6 +1,6 @@
 #include "phonebook.hpp"
 
-void Contact::get_id(void)
+void Contact::get_id(int i)
 {
     std::cout << "Name: ";
         getline(std::cin, this->name);
@@ -10,7 +10,6 @@ void Contact::get_id(void)
             std::cin.clear();
             return ;
         }
-    
     std::cout << "Surname: ";
         getline(std::cin, this->surname);
         if (this->surname.empty())
@@ -43,5 +42,34 @@ void Contact::get_id(void)
             std::cin.clear();
             return;
         }
+    this->index = i;
+}
 
+std::string Contact::get_name(void)
+{
+    return (this->name);
+}
+
+std::string Contact::get_surname(void)
+{
+    return (this->surname);
+}
+
+std::string Contact::get_nickname(void)
+{
+    return (this->nickname);
+}
+
+std::string Contact::get_secret(void)
+{
+    return (this->secret);
+}
+
+std::string Contact::get_tel(void)
+{
+    return (this->tel);
+}
+int Contact::get_inx(void)
+{
+    return (this->index);
 }
