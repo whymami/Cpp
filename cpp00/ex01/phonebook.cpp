@@ -72,6 +72,7 @@ void PhoneBook::print_line(void)
 int main(void)
 {
     PhoneBook book;
+
     while (true)
     {
         std::string command = get_input();

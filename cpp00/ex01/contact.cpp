@@ -69,6 +69,7 @@ std::string Contact::get_tel(void)
 {
     return (this->tel);
 }
+
 int Contact::get_inx(void)
 {
     return (this->index);

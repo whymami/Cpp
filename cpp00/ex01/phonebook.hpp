@@ -27,7 +27,6 @@ class PhoneBook
         Contact contact[8];
     public:
         PhoneBook(void);
-        // ~PhoneBook(void);
         void add(void);
         void search(void);
         void print_line(void);
