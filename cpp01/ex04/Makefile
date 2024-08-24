@@ -1,17 +1,17 @@
-NAME = brain
+NAME = replacefile
 
-SRCS = main.cpp
+SRCS = main.cpp replaceFile.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 CXX = c++
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)

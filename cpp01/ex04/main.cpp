@@ -5,25 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 18:08:44 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/20 19:37:37 by muguveli         ###   ########.fr       */
+/*   Created: 2024/08/20 19:31:32 by muguveli          #+#    #+#             */
+/*   Updated: 2024/08/24 19:38:41 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
+#include "replaceFile.hpp"
 
-int main(void)
+void init_program(char **argv)
 {
-    std::string str = "HI THIS IS BRAIN";
+    replaceFile replace_file(argv[1], argv[2], argv[3]);
+}
 
-    std::string *strptr = &str;
-    std::string &ref = str;
-
-    std::cout << "stringPTR address: " << strptr << std::endl;
-    std::cout << "stringin  address: " << &str << std::endl;
-    std::cout << "stringREF address: " << &ref << std::endl;
-
-    std::cout << "stringPTR value: " << *strptr << std::endl;
-    std::cout << "stringin  value: " << str << std::endl;
-    std::cout << "stringREF value: " << ref << std::endl;
+int main (int argc, char **argv)
+{
+    if (argc == 4)
+        init_program(argv);
+    else
+        return (std::cout << "The program must take 3 arguments." << std::endl, 0);
+    
 }

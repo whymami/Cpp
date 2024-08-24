@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 19:26:36 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/20 19:43:15 by muguveli         ###   ########.fr       */
+/*   Created: 2024/08/24 20:43:36 by muguveli          #+#    #+#             */
+/*   Updated: 2024/08/24 20:52:41 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_HPP
-#define HUMANB_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
-# include "iostream"
-#include "Weapon.hpp"
+#include "iostream"
+#include "string"
 
-class HumanB
+class Harl
 {
-    private:
-        std::string name;
-        Weapon *weapon;
-    public:
-        HumanB(std::string name);
-        ~HumanB();
-        void attack();
-        void setWeapon(Weapon *weapon);
+    void debug(void);
+    void info(void);
+    void warning(void);
+    void error(void);
+    void complain( std::string level );
 };
+
+
+void (this->*Harl::func[])(void)={
+    &Harl::debug, 
+    &Harl::info, 
+    &Harl::warning, 
+    &Harl::error, 
+}
+
 
 #endif
