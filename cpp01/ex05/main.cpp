@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 20:43:36 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/25 14:32:32 by muguveli         ###   ########.fr       */
+/*   Created: 2024/08/25 12:44:35 by muguveli          #+#    #+#             */
+/*   Updated: 2024/08/25 13:26:06 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#include "Harl.hpp"
 
-#include "iostream"
-#include "string"
-
-class Harl
+int main(void)
 {
-    private:
-        void debug(void);
-        void info(void);
-        void warning(void);
-        void error(void);
+    Harl harl;
 
-    public:
-        Harl();
-        ~Harl();
-        void complain(std::string level);
-};
-
-#endif
+    harl.complain("DEBUG");
+    harl.complain("INFO");
+    harl.complain("WARNING");
+    harl.complain("ERROR");
+    harl.complain("mami");
+}

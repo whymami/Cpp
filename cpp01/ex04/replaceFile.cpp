@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 20:01:39 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/24 20:46:52 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/08/25 12:34:47 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ replaceFile::replaceFile(std::string filename, std::string s1, std::string s2)
     this->file.open(this->getFilename().c_str(), std::ios::in);
     if (!this->file.is_open())
     {
-        std::cerr << "File could not open" << std::endl;
+        std::cout << "File could not open" << std::endl;
         return;
     }
     std::getline(this->file, buffer, '\0');
@@ -123,7 +123,7 @@ replaceFile::replaceFile(std::string filename, std::string s1, std::string s2)
     this->replacedfile.open(this->getFilename() + ".replace", std::ios::out);
     if (!this->replacedfile.is_open())
     {
-        std::cerr << "Output file could not be opened" << std::endl;
+        std::cout << "Output file could not be opened" << std::endl;
         return;
     }
     writeFile();
