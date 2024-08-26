@@ -6,11 +6,12 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 21:21:39 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/25 21:50:03 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/08/26 14:56:46 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "cmath"
 
 Fixed::Fixed(void):fixed(0)
 {
@@ -67,7 +68,7 @@ float Fixed::toFloat( void ) const
 
 int Fixed::toInt( void ) const
 {
-    return (this->fixed / (1 << this->point));
+    return (roundf(this->fixed / (1 << this->point)));
 }
 
 std::ostream &operator<<(std::ostream &str , const Fixed &opCopy)

@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 21:18:55 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/25 21:50:10 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/08/26 14:41:41 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,4 @@ class Fixed
 std::ostream &operator<<(std::ostream &str , const Fixed &opCopy);
 
 #endif
+
