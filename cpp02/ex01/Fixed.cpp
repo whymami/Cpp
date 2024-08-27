@@ -26,7 +26,7 @@ Fixed::Fixed(const int nbr )
 
 Fixed::Fixed(const float nbr )
 {
-    this->fixed = nbr * (1 << this->point);
+    this->fixed = roundf(nbr * (1 << this->point));
     std::cout << "Float constructor called" << std::endl;
 }
 
@@ -63,7 +63,7 @@ void Fixed::setRawBits( int const raw )
 
 float Fixed::toFloat( void ) const
 {
-    return ((float)(this->fixed / (1 << this->point)));
+    return ((float)(this->fixed / (float)(1 << this->point)));
 }
 
 int Fixed::toInt( void ) const
