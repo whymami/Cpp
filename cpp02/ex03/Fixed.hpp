@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 21:18:55 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/26 16:36:21 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/08/28 13:14:05 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ public:
     static const Fixed &min(const Fixed &a, const Fixed &b);
     static Fixed &max(Fixed &a, Fixed &b);
     static const Fixed &max(const Fixed &a, const Fixed &b);
-
 };
 
 std::ostream &operator<<(std::ostream &str, const Fixed &opCopy);

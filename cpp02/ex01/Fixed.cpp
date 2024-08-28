@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 21:21:39 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/26 14:56:46 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/08/28 13:10:57 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ Fixed::Fixed(void):fixed(0)
 
 Fixed::Fixed(const int nbr )
 {
-    this->fixed = nbr << this->point;
     std::cout << "Int constructor called" << std::endl;
+    this->fixed = nbr << this->point;
 }
 
 Fixed::Fixed(const float nbr )
 {
-    this->fixed = roundf(nbr * (1 << this->point));
     std::cout << "Float constructor called" << std::endl;
+    this->fixed = roundf(nbr * (1 << this->point));
 }
 
 Fixed::~Fixed(void)
@@ -37,15 +37,15 @@ Fixed::~Fixed(void)
 
 Fixed::Fixed(const Fixed &other)
 {
-    *this = other;
     std::cout << "Copy constructor called" << std::endl;
+    *this = other;
 }
 
 Fixed &Fixed::operator=(const Fixed &opCopy)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &opCopy)
-        this->fixed = opCopy.getRawBits();
+        this->fixed = opCopy.fixed;
     return (*this);
 }
 

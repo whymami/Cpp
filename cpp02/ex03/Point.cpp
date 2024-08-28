@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 16:48:04 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/26 17:44:16 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/08/28 13:15:41 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ Point::Point(const Point &copy) : _x(copy._x) , _y(copy._y) {}
 Point &Point::operator=(const Point &pointCopy)
 {
     if (this != &pointCopy)
-    {
-        
-    }
-    
+       // assigment implementation
     return *this;
 }
 

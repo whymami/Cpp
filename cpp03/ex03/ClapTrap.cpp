@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 13:31:17 by muguveli          #+#    #+#             */
-/*   Updated: 2024/08/28 13:31:22 by muguveli         ###   ########.fr       */
+/*   Created: 2024/08/28 13:31:06 by muguveli          #+#    #+#             */
+/*   Updated: 2024/08/28 16:39:38 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,11 @@ void ClapTrap::setHitPoint(unsigned int amount)
 void ClapTrap::setEnergyPoint(int amount)
 {
     this->_EnergyPoints = amount;
+}
+
+void ClapTrap::setAttackDamage(int amount)
+{
+    this->_AttackDamage = amount;
 }
 
 void ClapTrap::attack(const std::string& target)
