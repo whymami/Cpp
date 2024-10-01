@@ -24,8 +24,6 @@ int main(void)
         std::cout << b << std::endl;
         b.gradeDown();
         std::cout << b << std::endl;
-        b.gradeDown();
-        std::cout << b << std::endl;
     }
     catch(std::exception &e)
     {

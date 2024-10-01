@@ -15,9 +15,9 @@
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
     if (grade < HIGHEST_GRADE) 
-        throw Bureaucrat::GradeTooHighException(); // Hata: Hata fırlatmak için doğru yazım
+        throw Bureaucrat::GradeTooHighException();
     if (grade > LOWEST_GRADE) 
-        throw Bureaucrat::GradeTooLowException(); // Hata: Hata fırlatmak için doğru yazım
+        throw Bureaucrat::GradeTooLowException();
     _grade = grade;
 }
 
@@ -58,9 +58,7 @@ void Bureaucrat::gradeUp()
 void Bureaucrat::gradeDown()
 {
     if ((this->getGrade() + 1) > LOWEST_GRADE)
-    {
         throw Bureaucrat::GradeTooLowException();
-    }
     else
         this->_grade++;
 }
@@ -69,6 +67,16 @@ std::ostream& operator<<(std::ostream &os, const Bureaucrat &b)
 {
     os << b.getName() << ", Grade " << b.getGrade();
     return (os);
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return ("Grade is too high!");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return ("Grade is to low!");
 }
 
 Bureaucrat::~Bureaucrat()
