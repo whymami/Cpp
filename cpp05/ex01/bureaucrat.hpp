@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:22:03 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/08 13:57:44 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/08 14:21:33 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define BUREAUCRAT_HPP
 
 #include "iostream"
+#include "Form.hpp"
 
 #define HIGHEST_GRADE 1
 #define LOWEST_GRADE 150
@@ -32,6 +33,7 @@ class Bureaucrat
         int getGrade() const;
         void gradeUp();
         void gradeDown();
+        void signForm(Form &form);
         ~Bureaucrat();
 
     class GradeTooHighException : public std::exception
