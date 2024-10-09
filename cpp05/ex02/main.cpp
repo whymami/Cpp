@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:08:22 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 17:30:16 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:40:35 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 
 int main() 
 {
-    try {
+    try 
+    {
         Bureaucrat bureaucrat("Alice", 1);
         
         ShrubberyCreationForm shrubberyForm("home");
@@ -31,7 +32,9 @@ int main()
         PresidentialPardonForm pardonForm("Charlie");
         pardonForm.beSigned(bureaucrat);
         bureaucrat.executeForm(pardonForm);
-    } catch (std::exception &e) {
+    } 
+    catch (std::exception &e) 
+    {
         std::cout << "Exception: " << e.what() << std::endl;
     }
 

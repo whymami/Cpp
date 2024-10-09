@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:06:10 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 19:06:11 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:48:29 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class PresidentialPardonForm : public AForm
     private:
         std::string _target;
     public:
+        PresidentialPardonForm();
         PresidentialPardonForm(const std::string &target);
         PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
         PresidentialPardonForm(const PresidentialPardonForm &other);

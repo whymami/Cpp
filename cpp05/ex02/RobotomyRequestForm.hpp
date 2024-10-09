@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:06:46 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 19:06:47 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:36:57 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class RobotomyRequestForm : public AForm
     private:
         std::string _target;
     public:
+        RobotomyRequestForm();
         RobotomyRequestForm(const std::string &target);
         RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
         RobotomyRequestForm(const RobotomyRequestForm &other);

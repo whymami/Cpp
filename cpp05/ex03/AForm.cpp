@@ -6,15 +6,13 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:30:32 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 19:27:34 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:47:33 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("mami"), _requiredSignGrade(150), _requiredExecGrade(150)
-{
-}
+AForm::AForm() : _name("mami"), _requiredSignGrade(150), _requiredExecGrade(150) {}
 
 AForm::AForm(const std::string name, bool isSigned, const int requiredSignGrade, const int requiredExecGrade) : _name(name), _requiredSignGrade(requiredSignGrade), _requiredExecGrade(requiredExecGrade)
 {
@@ -71,9 +69,7 @@ int AForm::getRequiredExecGrade() const
     return (this->_requiredExecGrade);
 }
 
-AForm::~AForm()
-{	
-}
+AForm::~AForm() {}
 
 const char *AForm::GradeTooLowException::what() const throw()
 {

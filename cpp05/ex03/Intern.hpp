@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:05:58 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 19:06:00 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:48:14 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class Intern
 {
     private:
         typedef AForm *(Intern::*FormCreator)(const std::string &target) const;
-
         AForm *createShrubberyForm(const std::string &target) const;
         AForm *createRobotomyForm(const std::string &target) const;
         AForm *createPresidentialPardonForm(const std::string &target) const;
@@ -32,7 +31,6 @@ class Intern
         Intern(const Intern &other);
         Intern &operator=(const Intern &other);
         ~Intern();
-
         AForm *makeForm(const std::string &formName, const std::string &target) const;
 
 };

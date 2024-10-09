@@ -6,13 +6,15 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:06:50 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 19:06:51 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:39:01 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Shrubbery Creation", false, 145, 137), _target(target) {}
+
+ShrubberyCreationForm::ShrubberyCreationForm() : _target("Default") {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {

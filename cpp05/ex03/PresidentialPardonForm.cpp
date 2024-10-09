@@ -6,14 +6,14 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:06:07 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 19:06:08 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:48:24 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AForm("Presidential Pardon", false, 25, 5), _target(target) {}
-
+PresidentialPardonForm::PresidentialPardonForm() : _target("Default") {}
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
 {
     if (this != &other)

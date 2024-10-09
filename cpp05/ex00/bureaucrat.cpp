@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 16:27:33 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/08 13:57:48 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:45:03 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
     _grade = grade;
 }
 
-Bureaucrat::Bureaucrat() : _name("muguveli") , _grade(1)
-{
-}
+Bureaucrat::Bureaucrat() : _name("muguveli") , _grade(1) {}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other)
 {
@@ -78,6 +76,4 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return ("Grade is to low!");
 }
 
-Bureaucrat::~Bureaucrat()
-{
-}
+Bureaucrat::~Bureaucrat() {}

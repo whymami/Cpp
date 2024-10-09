@@ -6,14 +6,14 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:06:19 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 19:06:20 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:48:57 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm("Shrubbery Creation", false, 145, 137), _target(target) {}
-
+ShrubberyCreationForm::ShrubberyCreationForm() : _target("Default") {}
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
     if (this != &other)
@@ -26,7 +26,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
     *this = other;
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const 
+{
     if (!getIsSigned())
         throw AForm::FormAlreadySiged();
     if (executor.getGrade() > getRequiredExecGrade())

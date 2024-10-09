@@ -6,13 +6,15 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 19:06:43 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 19:06:43 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:37:25 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target): AForm("Robotomy Request",false, 72, 45), _target(target) {}
+
+RobotomyRequestForm::RobotomyRequestForm() : _target("Default") {}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 {
