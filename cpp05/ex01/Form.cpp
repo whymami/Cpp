@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 14:30:32 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 13:51:26 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 19:29:13 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ Form::Form() : _name("mami"), _requiredSignGrade(150), _requiredExecGrade(150)
 
 Form::Form(const std::string name, bool isSigned, const int requiredSignGrade, const int requiredExecGrade) : _name(name), _requiredSignGrade(requiredSignGrade), _requiredExecGrade(requiredExecGrade)
 {
-    this->_isSigned = isSigned;
+	if (requiredExecGrade > 150 || requiredSignGrade > 150)
+		throw Form::GradeTooLowException();
+	else if (requiredExecGrade < 0 || requiredSignGrade < 0)
+		throw Form::GradeTooHighException();
+	else
+    	this->_isSigned = isSigned;
 }
 
 void Form::beSigned(const Bureaucrat &bureaucrat)
