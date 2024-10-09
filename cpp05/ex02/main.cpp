@@ -6,26 +6,35 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:08:22 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 15:30:38 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:30:16 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main(void)
+int main() 
 {
-    try
-    {
-        Bureaucrat a("mami", 1);
-        Form f("Form", false, 3, 2);
-        std::cout << a.getName() << " " << a.getGrade() << "\n" << f.getName() << " " << f.getRequiredSignGrade() << std::endl;
-        std::cout << f.getName() << " " << f.getIsSigned() << std::endl;
-        f.beSigned(a);
-        std::cout << f.getName() << " " << f.getIsSigned() << std::endl;
+    try {
+        Bureaucrat bureaucrat("Alice", 1);
+        
+        ShrubberyCreationForm shrubberyForm("home");
+        shrubberyForm.beSigned(bureaucrat);
+        bureaucrat.executeForm(shrubberyForm);
+
+        RobotomyRequestForm robotomyForm("Bob");
+        robotomyForm.beSigned(bureaucrat);
+        bureaucrat.executeForm(robotomyForm);
+
+        PresidentialPardonForm pardonForm("Charlie");
+        pardonForm.beSigned(bureaucrat);
+        bureaucrat.executeForm(pardonForm);
+    } catch (std::exception &e) {
+        std::cout << "Exception: " << e.what() << std::endl;
     }
-    catch(std::exception &e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+
+    return 0;
 }
+

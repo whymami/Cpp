@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:22:03 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 12:56:22 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:08:59 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #define BUREAUCRAT_HPP
 
 #include "iostream"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #define HIGHEST_GRADE 1
 #define LOWEST_GRADE 150
 
-class Form;
+class AForm;
 class Bureaucrat
 {
     private:
@@ -34,7 +34,8 @@ class Bureaucrat
         int getGrade() const;
         void gradeUp();
         void gradeDown();
-        void signForm(Form &form);
+        void signForm(AForm &form);
+        void executeForm(const AForm &form) const;
         ~Bureaucrat();
 
     class GradeTooHighException : public std::exception

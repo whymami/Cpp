@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 16:27:33 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/09 13:44:43 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/09 17:09:36 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,22 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("Grade is to low!");
 }
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     form.beSigned(*this);
+}
+
+void Bureaucrat::executeForm(const AForm &form) const 
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    } 
+    catch (std::exception &e) 
+    {
+        std::cout << "Failed to execute " << form.getName() << ": " << e.what() << std::endl;
+    }
 }
 
 Bureaucrat::~Bureaucrat()
