@@ -1,6 +1,6 @@
-NAME = convert
+NAME = iter
 
-SRCS = main.cpp Convert.cpp CheckInput.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

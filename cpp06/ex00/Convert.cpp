@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 15:26:36 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/13 19:46:06 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/16 10:34:13 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,124 +14,38 @@
 
 int ScalarConverter::_type;
 
-
-int isInt(const std::string &str)
-{
-    if (str.empty())
-        return 0;
-    size_t i = 0;
-
-    if (str[i] == '-' || str[i] == '+') 
-        i++;
-
-    if (i == str.length())
-        return 0;
-    
-    for (; i < str.length(); i++)
-        if (!std::isdigit(str[i])) 
-            return 0;
-    return INT;
-}
-
-int isChar(const std::string &str)
-{
-    if (str.length() == 1 && std::isprint(str[0]))
-        return CHAR;
-    return 0;
-}
-
-int isFloat(const std::string &str)
-{
-    size_t dotCount = 0;
-    bool hasF = false;
-
-    if (str.length() == 1)
-        return 0;
-    for (size_t i = 0; i < str.length(); i++)
-    {
-        if (str[i] == '.')
-            dotCount++;
-        else if (str[i] == 'f' || str[i] == 'F')
-        {
-            if (i != str.length() - 1)
-                return 0;
-            hasF = true;
-        }
-        else if (!std::isdigit(str[i]) && str[i] != '-' && str[i] != '+')
-            return 0;
-    }
-    if (dotCount > 1)
-        return 0;
-    if (hasF)
-        return (FLOAT);
-    return 0;
-}
-
-int isDouble(const std::string &str)
-{
-    size_t dotCount = 0;
-    if (str.length() == 1)
-        return 0;
-    for (size_t i = 0; i < str.length(); i++)
-    {
-        if (str[i] == '.')
-            dotCount++;
-        else if (!std::isdigit(str[i]) && str[i] != '-' && str[i] != '+')
-            return 0;
-    }
-    if (dotCount > 1)
-        return 0;
-    return (DOUBLE);
-}
-int isPseudo(const std::string &str)
-{
-    std::string pseudos_float[3] = {"-inff", "+inff", "nanf"};
-    std::string pseudos_double[3] = {"-inf", "+inf", "nan"};
-    for (size_t i = 0; i < 3; i++)
-        if (str == pseudos_float[i] || str == pseudos_double[i])
-            return (PSEUDO);
-    return (0);        
-}
-
-int ScalarConverter::checkInput(const std::string &str)
-{
-    if (str.empty())
-        return EMPTY;
-    if (isInt(str))
-        return INT;
-    if (isPseudo(str))
-        return (PSEUDO);
-    if (isChar(str))
-        return CHAR;
-    if (isFloat(str))
-        return FLOAT;
-    if (isDouble(str))
-        return DOUBLE;
-    return 0;
-}
-
-
 void ScalarConverter::printChar(const std::string &str)
 {
-    if (str.length() == 1 && std::isprint(str[0]))
-        std::cout << "char: '" << str[0] << "'" << std::endl;
-    else
+    if (str == "0")
     {
-        int num = std::atoi(str.c_str());
-        if (num < std::numeric_limits<char>::min() || num > std::numeric_limits<char>::max())
-        {
-            std::cout << "char: impossible" << std::endl;
-            return;
-        }
-        if (std::isprint(static_cast<char>(num)))
-            std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
-        else
-            std::cout << "char: Non displayable" << std::endl;
+        std::cout << "char: Non displayable" << std::endl;
+        return;
     }
+    if (str.length() == 1 && std::isprint(str[0]))
+    {
+        std::cout << "char: '" << str[0] << "'" << std::endl;
+        return;
+    }
+    int num = std::atoi(str.c_str());
+    if (num < std::numeric_limits<char>::min() || num > std::numeric_limits<char>::max())
+    {
+        std::cout << "char: impossible" << std::endl;
+        return;
+    }
+    if (std::isprint(static_cast<char>(num)))
+        std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
 }
+
 
 void ScalarConverter::printInt(const std::string &str)
 {
+    if (str == "0")
+    {
+        std::cout << "int: 0" << std::endl;
+        return;
+    }
     if (str.length() == 1 && std::isprint(str[0]))
     {
         std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
@@ -143,6 +57,7 @@ void ScalarConverter::printInt(const std::string &str)
     else
         std::cout << "int: " << nbr << std::endl;
 }
+
 void ScalarConverter::handlePseudo(const std::string &str)
 {
     std::string pseudos_float[3] = {"-inff", "+inff", "nanf"};
@@ -163,35 +78,73 @@ void ScalarConverter::printFloat(const std::string &str)
 {
     if (_type == FLOAT || _type == DOUBLE)
     {
-        size_t a = 0;
+        size_t precision = 0;
+        bool hasDot = false;
+
         for (size_t i = 0; i < str.length(); i++)
         {
             if (str[i] == '.')
             {
+                hasDot = true;
                 i++;
-                a = 0;
-                while (str[i] && str[i] != 'f' && str[i] != 'F')
-                {
-                    a++;
+                while (i < str.length() && str[i] != 'f' && str[i] != 'F' && precision++)
                     i++;
-                }
-                if (a == 0)
-                    a = 1;
+                break;
             }
-            else
-                a = 1;
         }
-        std::cout << std::fixed << std::setprecision(a) << "float: " << std::atof(str.c_str()) << "f" << std::endl;
+        if (!hasDot || precision == 0)
+            precision = 1;
+        std::cout << std::fixed << std::setprecision(precision) << "float: " << std::atof(str.c_str()) << "f" << std::endl;
     }
-    else if ((_type == INT || _type == CHAR))
-        std::cout << "float: " << std::atof(str.c_str()) << ".0f" << std::endl;
+    else if (_type == INT || _type == CHAR)
+    {
+        if (_type == CHAR && str.length() == 1)
+        {
+            char c = str[0];
+            float floatVal = static_cast<float>(c);
+            std::cout << "float: " << floatVal << ".0f" << std::endl;
+        }
+        else
+            std::cout << "float: " << std::atof(str.c_str()) << ".0f" << std::endl;
+    }
 }
+
 
 void ScalarConverter::printDouble(const std::string &str) 
 {
-    double num = std::atof(str.c_str());
-    std::cout << "double: " << std::fixed << std::setprecision(1) << num << std::endl;
+    if (_type == FLOAT || _type == DOUBLE)
+    {
+        size_t precision = 0;
+        bool hasDot = false;
+
+        for (size_t i = 0; i < str.length(); i++)
+        {
+            if (str[i] == '.')
+            {
+                hasDot = true;
+                i++;
+                while (i < str.length() && str[i] != 'f' && str[i] != 'F' && precision++)
+                    i++;
+                break;
+            }
+        }
+        if (!hasDot || precision == 0)
+            precision = 1;
+        std::cout << std::fixed << std::setprecision(precision) << "double: " << std::atof(str.c_str()) << std::endl;
+    }
+    else if (_type == INT || _type == CHAR)
+    {
+        if (_type == CHAR && str.length() == 1)
+        {
+            char c = str[0];
+            double doubleVal = static_cast<double>(c);
+            std::cout << "double: " << doubleVal << ".0" << std::endl;
+        }
+        else
+            std::cout << "double: " << std::atof(str.c_str()) << ".0" << std::endl;
+    }
 }
+
 
 void ScalarConverter::convert(const std::string &str)
 {
