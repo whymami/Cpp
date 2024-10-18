@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:48:19 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/18 19:05:42 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/18 19:13:12 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ void Span::addNumber(int number)
     _vector.push_back(number);
 }
 
-void Span::addNumber(size_t size, size_t seed)
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    if (_vector.size() >= _n)
-        throw VectorIsFull();
-    std::srand(seed);
-    if (size > _n)
-        throw std::runtime_error("size exceeds the max limit of the vector");
-    for (size_t i = 0; i < size && _vector.size() < _n; i++)
-        _vector.push_back(rand());
+    while (begin != end)
+    {
+        if (_vector.size() >= _n)
+            throw std::runtime_error("Vector range is overflow");
+        _vector.push_back(*begin);
+        begin++;
+    }
 }
 
 Span::Span(Span &other) {*this = other;}
