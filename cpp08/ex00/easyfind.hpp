@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 19:53:16 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/18 16:32:26 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:42:00 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define EASYFIND_HPP
 
 #include "iostream"
-#include "iterator"
 #include "list"
 
 template <typename T>

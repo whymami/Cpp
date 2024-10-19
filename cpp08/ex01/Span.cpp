@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:48:19 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/18 19:13:12 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:42:46 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Span::Span() : _n(0) , _vector(std::vector<int>()) {}
 
 Span::Span(unsigned int n) : _n(n), _vector(std::vector<int>()){}
 
-Span &Span::operator=(Span &other) 
+Span &Span::operator=(const Span &other) 
 {
     this->_n  = other._n;
     this->_vector = other._vector;
@@ -31,18 +31,17 @@ void Span::addNumber(int number)
     _vector.push_back(number);
 }
 
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+void Span::addNumber(size_t size, size_t seed)
 {
-    while (begin != end)
-    {
-        if (_vector.size() >= _n)
-            throw std::runtime_error("Vector range is overflow");
-        _vector.push_back(*begin);
-        begin++;
-    }
+    if (_vector.size() >= _n)
+        throw VectorIsFull();
+    if (size > _n)
+        throw std::runtime_error("size exceeds the max limit of the vector");
+    for (size_t i = 0; i < size && _vector.size() < _n; i++)
+        _vector.push_back(rand() % seed);
 }
 
-Span::Span(Span &other) {*this = other;}
+Span::Span(const Span &other) {*this = other;}
 
 const char *Span::VectorIsFull::what() const throw()
 {

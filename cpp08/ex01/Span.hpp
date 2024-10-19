@@ -6,13 +6,12 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:47:59 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/18 19:08:31 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/19 12:42:30 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iostream"
 #include "vector"
-#include "iterator"
 
 class Span
 {
@@ -22,10 +21,10 @@ class Span
     public:
         Span();
         Span(unsigned int n);
-        Span &operator=(Span &other);
-        Span(Span &other);
+        Span &operator=(const Span &other);
+        Span(const Span &other);
         void addNumber(int number);
-        void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+        void addNumber(size_t size, size_t seed);
         int shortestSpan();
         int longestSpan();
         ~Span();

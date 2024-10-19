@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 16:55:52 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/18 19:26:34 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/19 11:24:17 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,16 @@ int main()
     }
     
     {
-        Span a(100);
-        srand(time(NULL));
-        std::vector<int> numbers;
-        for (int i = 0; i < 100; i++)
+        try
         {
-            int num = rand() % 50;
-            std::cout << "number: " << num << std::endl;
-            numbers.push_back(num);
+            Span a(10);
+            a.addNumber(10, 100);
+            std::cout << a.shortestSpan() << std::endl;
+            std::cout << a.longestSpan() << std::endl;
         }
-        a.addNumber(numbers.begin(), numbers.end());
-        std::cout << "long range: " << a.longestSpan() << std::endl;
-        std::cout << "short range: " << a.shortestSpan() << std::endl;
+        catch (const std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
     }
 }
