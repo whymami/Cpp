@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 11:42:21 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/19 16:02:20 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/20 13:42:40 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <stack>
-#include "iterator"
 
 template<typename T>
 class MutantStack : public std::stack<T>

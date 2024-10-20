@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 15:48:19 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/19 12:42:46 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/20 17:29:13 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,10 @@ int Span::shortestSpan()
     if (_vector.size() < 2)
         throw std::runtime_error("At least two numbers are required to find a span.");
     std::sort(_vector.begin(), _vector.end());
-    int min = _vector[0] - _vector[1];
+    int min = _vector[1] - _vector[0];
     for (size_t i = 2; i < _vector.size(); i++)
         if (_vector[i] - _vector[i - 1] < min)
             min = _vector[i] - _vector[i - 1];
-    if (min < 0)
-        return (min *= -1);
     return (min);
 }
 
@@ -67,13 +65,7 @@ int Span::longestSpan()
     if (_vector.size() < 2)
         throw std::runtime_error("At least two numbers are required to find a span.");
     std::sort(_vector.begin(), _vector.end());
-    int max = _vector[0] - _vector[1];
-    for (size_t i = 1; i < _vector.size(); i++)
-        if (_vector[i] + _vector[i - 1] > max)
-            max = _vector[i] + _vector[i - 1];
-    if (max < 0)
-        return (max *= -1);
-    return (max);
+    return (_vector.at(_vector.size() - 1) - _vector.at(0));
 }
 
 Span::~Span() {}

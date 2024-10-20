@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 19:53:16 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/20 18:38:59 by muguveli         ###   ########.fr       */
+/*   Created: 2024/10/20 18:02:11 by muguveli          #+#    #+#             */
+/*   Updated: 2024/10/20 19:58:47 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-#define EASYFIND_HPP
+#include "BitcoinExchange.hpp"
 
-#include "iostream"
-#include "list"
-
-template <typename T>
-typename T::iterator easyfind(T& container, int value) 
+int main(int argc , char **argv)
 {
-    typename T::iterator it = std::find(container.begin(), container.end(), value);
-    if (it == container.end())
-        throw std::runtime_error("Value not found in the container");
-    return it;
+    try
+    {
+        if (argc < 2)
+            throw std::logic_error("Error: could not open file.");
+        BitcoinExchange b(argv[1]);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }
-
-#endif
