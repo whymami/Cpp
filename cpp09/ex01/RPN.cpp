@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 20:15:22 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/27 17:19:46 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/31 18:25:26 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void RPN::operation(std::string &op)
     if (_rpn.size() < 2)
         throw std::runtime_error("Error");
     
-    int nbr2 = _rpn.top();
+    double nbr2 = _rpn.top();
     _rpn.pop();
-    int nbr1 = _rpn.top();
+    double nbr1 = _rpn.top();
     _rpn.pop();
 
     switch (op[0])
@@ -51,8 +51,6 @@ void RPN::operation(std::string &op)
         _rpn.push(nbr1 * nbr2);
         break;
     case '/':
-        if (nbr2 == 0)
-            throw std::runtime_error("Error");
         _rpn.push(nbr1 / nbr2);
         break;
     }
@@ -62,11 +60,11 @@ void RPN::printResult()
 {
     if (_rpn.empty())
         throw std::runtime_error("Error");
+    if (_rpn.size() > 1)
+        throw std::runtime_error("Error");
     
-    int size = _rpn.size();
-    int result = _rpn.top();
+    double result = _rpn.top();
     
-    std::cout << "stack size: " << size << std::endl;
     std::cout << "result: " << result << std::endl;
 }
 
@@ -85,7 +83,7 @@ RPN::RPN(std::string input)
             operation(a);
             continue;
         }
-        _rpn.push(std::atoi(a.c_str()));
+        _rpn.push(static_cast<double>(atoi(a.c_str())));
     }
     printResult();
 }

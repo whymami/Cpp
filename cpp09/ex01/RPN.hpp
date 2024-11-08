@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 20:15:22 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/27 16:54:28 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/31 18:01:52 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class RPN
 {
     private:
-        std::stack<int> _rpn;
+        std::stack<double> _rpn;
     public :
         RPN();
         RPN(std::string input);

@@ -6,7 +6,7 @@
 /*   By: muguveli <muguveli@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 18:16:19 by muguveli          #+#    #+#             */
-/*   Updated: 2024/10/27 19:39:33 by muguveli         ###   ########.fr       */
+/*   Updated: 2024/10/31 17:26:40 by muguveli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include "vector"
 #include "deque"
 #include <sstream>
+#include <sys/time.h>
+#include <iomanip>
 
 class PmergeMe
 {
@@ -35,7 +37,10 @@ class PmergeMe
         void FordJohnson(T &c);
 
         template <typename T>
-        void mergeSort(T &c, T &left, T &rigt);
+        void mergeSort(T &c, const T &left, const T &right);
+
+        template <typename T, typename J>
+        void display(const T &c, const J &c1, std::clock_t start, std::clock_t end, std::clock_t start1, std::clock_t end1);
 
         void parser(char **av);
 };
